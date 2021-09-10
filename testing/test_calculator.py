@@ -10,7 +10,7 @@ from pythoncode.Calculator import Calculator
 
 def get_yaml_datas(name,type='int'):
     # with open 可以自动关闭
-    with open("./datas/calculator.yml") as f:
+    with open("./datas/calculator.yml",encoding='utf-8') as f:
         data = yaml.safe_load(f)
         datas = data[name][type]['datas']
         ids = data[name][type]['ids']
@@ -54,9 +54,11 @@ def get_datas_with_fixture_div_zero(request):#从fixture里获取返回值，只
     return request.param
 
 #-------------------------------------------------------------------------------------------------------------
+'''
 #临时函数，查看返回值
 def test_param(get_datas_with_fixture):
     print(get_datas_with_fixture[0])
+'''
 #--------------------------------------------------------------------------------------------------------------
 
 

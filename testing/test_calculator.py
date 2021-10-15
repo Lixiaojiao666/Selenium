@@ -1,4 +1,6 @@
 import sys
+
+import allure
 import pytest
 import yaml
 
@@ -61,7 +63,7 @@ def test_param(get_datas_with_fixture):
 '''
 #--------------------------------------------------------------------------------------------------------------
 
-
+@allure.feature("计算器")  #大标题
 class TestCalculator():
     # datas:list = get_yaml_datas()
     # add_int_datas = get_yaml_datas('add')
@@ -72,32 +74,36 @@ class TestCalculator():
     div_zero_datas = get_yaml_datas('div',type='zero')
 
 
+    #@allure.title(f"计算器-加法_{get_datas_with_fixture_add_int[0]}")
+    @allure.story("相加功能-整数") #小标题
     def test_add_int(self,get_instance,get_datas_with_fixture_add_int):
         f = get_datas_with_fixture_add_int
         assert f[2] == round(get_instance.add(f[0],f[1]),3)
 
+    @allure.story("相加功能-浮点数")
     def test_add_float(self,get_instance,get_datas_with_fixture_add_float):
         f = get_datas_with_fixture_add_float
         assert f[2] == round(get_instance.add(f[0],f[1]),3)
 
-
+    @allure.story("相加功能-字符")
     def test_add_str(self,get_instance, get_datas_with_fixture_add_str):
         f = get_datas_with_fixture_add_str
         with pytest.raises(TypeError):
             assert f[2] == round(get_instance.add(f[0],f[1]), 3)
 
+    @allure.story("相除功能-整数")
     def test_div_int(self,get_instance,get_datas_with_fixture_div_int):
         f = get_datas_with_fixture_div_int
         print(f"a={f[0]},b={f[1]},result={f[2]}")
         assert f[2] == get_instance.div(f[0],f[1])
 
-
+    @allure.story("相除功能-浮点数")
     def test_div_float(self,get_instance,get_datas_with_fixture_div_float):
         f = get_datas_with_fixture_div_float
         print(f"a={f[0]},b={f[1]},result={f[2]}")
         assert f[2] == get_instance.div(f[0],f[1])
 
-
+    @allure.story("相除功能-零")
     def test_div_zero(self,get_instance, get_datas_with_fixture_div_zero):
         f = get_datas_with_fixture_div_zero
         print(f"a={f[0]},b={f[1]},result={f[2]}")

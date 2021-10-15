@@ -25,7 +25,7 @@ setup(
         'pytest','py.test','ptest_encode'
     ],
 
-    #需要安装的依赖
+    #需要安装的依赖，配置了此项以后，安装插件的时候，会自动安装依赖包
     install_requires=[
         'pytest'
     ],

@@ -2,8 +2,9 @@ import sys
 
 import pytest
 
-sys.path.append('..')
-print(sys.path)
+
+#sys.path.append('..')
+#print(sys.path)
 
 
 

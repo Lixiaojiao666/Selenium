@@ -31,7 +31,7 @@ class TestJS(Base):
         # 不放到代码块里，也可以放到括号里，用分号；隔开
         print(self.driver.execute_script("return document.title;return JSON.stringify(performance.timing)"))
 
-
+    #测试时间控件
     def test_datatime(self):
         #打开12306网站
         self.driver.get("http://www.12306.cn/index/")
@@ -42,3 +42,6 @@ class TestJS(Base):
         #执行js代码：给时间控件赋值2021-11-11，返回赋值，并打印出来
         print(self.driver.execute_script("return document.getElementById('train_date').value='2021-11-11'"))
         sleep(3)
+
+
+
